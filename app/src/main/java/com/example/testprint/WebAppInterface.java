@@ -1,5 +1,5 @@
 package com.example.testprint;
-
+import com.dantsu.escposprinter.EscPosPrinter;
 import android.content.Context;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
@@ -13,7 +13,12 @@ public class WebAppInterface {
 
     @JavascriptInterface
     public void triggerPrint() {
-        // Here you can call Android's PrintManager or your printer SDK
-        Toast.makeText(mContext, "krelian r quimson", Toast.LENGTH_SHORT).show();
+        try {
+            // Try to load the EscPosPrinter class
+            Class.forName("com.dantsu.escposprinter.EscPosPrinter");
+            Toast.makeText(mContext, "Library installed", Toast.LENGTH_SHORT).show();
+        } catch (ClassNotFoundException e) {
+            Toast.makeText(mContext, "Library NOT installed", Toast.LENGTH_SHORT).show();
+        }
     }
 }

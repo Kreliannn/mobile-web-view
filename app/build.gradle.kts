@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.github.DantSu:ESCPOS-ThermalPrinter-Android:3.3.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
